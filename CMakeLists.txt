@@ -1,9 +1,3 @@
-# TRACCC library, part of the ACTS project (R&D line)
-#
-# (c) 2021-2022 CERN for the benefit of the ACTS project
-#
-# Mozilla Public License Version 2.0
-
 # Set up the project.
 cmake_minimum_required( VERSION 3.9 )
 project( detray_tutorial VERSION 0.0.0 LANGUAGES CXX )
@@ -40,3 +34,6 @@ check_language( CUDA )
 
 # include detray
 add_subdirectory( extern/detray )
+
+# include tutorials
+add_subdirectory( tutorials )
