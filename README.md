@@ -18,5 +18,9 @@ make
 ### Run propagator example
 
 ```sh
-./bin/detray_tutorial_propagator
+# CPU propagation
+./bin/detray_tutorial_propagator_cpu
+
+# CUDA propagation
+./bin/detray_tutorial_propagator_cuda
 ```
