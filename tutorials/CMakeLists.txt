@@ -9,3 +9,5 @@ detray_add_executable( tutorial_propagator
    "propagation/propagation.cpp" "propagation/propagation.hpp" 
    "propagation/propagation.cu" 
    LINK_LIBRARIES detray::array detray_tests_common detray::core vecmem::cuda )
+
+detray_add_flag( CMAKE_CUDA_FLAGS "--expt-relaxed-constexpr" )   
