@@ -12,12 +12,15 @@ __global__ void cuda_propagation_kernel(
     vecmem::data::vector_view<free_track_parameters> tracks_data,
     vecmem::data::jagged_vector_view<intersection_t> candidates_data)
 {
+    // Global thread index
     int gid = threadIdx.x + blockIdx.x * blockDim.x;
 
+    // Generate device objects
     detector_device_type det(det_data);
     vecmem::device_vector<free_track_parameters> tracks(tracks_data);
     vecmem::jagged_device_vector<intersection_t> candidates(candidates_data);
 
+    // If global thread index is larger than the track batch size, return
     if (gid >= tracks.size())
     {
         return;
