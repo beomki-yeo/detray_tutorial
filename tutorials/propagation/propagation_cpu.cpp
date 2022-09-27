@@ -1,7 +1,5 @@
 /** Detray tutorial project, No copy right **/
 
-#include <iostream>
-
 // Detray include(s).
 #include "detray/plugins/algebra/array_definitions.hpp"
 #include "detray/definitions/units.hpp"
