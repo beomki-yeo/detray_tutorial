@@ -2,7 +2,7 @@
 
 ### Prerequistes
 1. GCC >= 10.3.1
-2. CUDA >= 11.5 and any GPU device
+2. CUDA >= 11.5 and any NVIDIA GPU
 
 ### Clone the repository and Compile
 
