@@ -8,6 +8,10 @@
 #include <vecmem/memory/cuda/managed_memory_resource.hpp>
 #include <vecmem/utils/cuda/copy.hpp>
 
+// System include(s).
+#include <chrono>
+#include <iostream>
+
 // Create a batch of tracks
 void create_tracks(vecmem::vector<free_track_parameters> &tracks,
                    const unsigned int theta_steps, const unsigned int phi_steps)
@@ -20,6 +24,7 @@ void create_tracks(vecmem::vector<free_track_parameters> &tracks,
     for (auto traj : uniform_track_generator<free_track_parameters>(
              theta_steps, phi_steps, ori, mom_mag))
     {
+        // overstep tolerance for surface navigation
         tracks.push_back(traj);
     }
 }
@@ -31,9 +36,9 @@ int main()
      * Initial Setup *
      *****************/
 
-    // Track batch setup (10 X 10 == 100 tracks)
-    constexpr int n_theta_steps = 10;
-    constexpr int n_phi_steps = 10;
+    // Track batch setup (100 X 100 == 10000 tracks)
+    constexpr int n_theta_steps = 100;
+    constexpr int n_phi_steps = 100;
 
     // Detector setup for the number of layers
     constexpr std::size_t n_barrel_layers = 4;
@@ -71,6 +76,8 @@ int main()
     // Create propagator
     propagator_host_type propagator(std::move(s), std::move(n));
 
+    /*time*/ auto start_cpu_time = std::chrono::system_clock::now();
+
     // Do the propagation
     for (auto &track : tracks_host)
     {
@@ -80,6 +87,11 @@ int main()
         // Run propagation
         propagator.propagate(state);
     }
+
+    /*time*/ auto end_cpu_time = std::chrono::system_clock::now();
+    /*time*/ std::chrono::duration<double> cpu_time =
+        end_cpu_time - start_cpu_time; 
+    std::cout << "CPU time: " << cpu_time.count() << std::endl;
 
     /********************
      * CUDA propagation *
@@ -101,8 +113,15 @@ int main()
     vecmem::cuda::copy copy;
     copy.setup(candidates_buffer);
 
+    /*time*/ auto start_cuda_time = std::chrono::system_clock::now();
+
     // Do the propagation in CUDA
     cuda_propagation(det_data, B_field, tracks_data, candidates_buffer);
+
+    /*time*/ auto end_cuda_time = std::chrono::system_clock::now();
+    /*time*/ std::chrono::duration<double> cuda_time =
+        end_cuda_time - start_cuda_time; 
+    std::cout << "CUDA time: " << cuda_time.count() << std::endl;
 
     return 0;
 }

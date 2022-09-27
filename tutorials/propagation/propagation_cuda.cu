@@ -35,7 +35,7 @@ __global__ void cuda_propagation_kernel(
     // Create the propagator state
     propagator_device_type::state state(
         tracks.at(gid), actor_chain<>::state{}, candidates.at(gid));
-
+   
     // Run propagation
     propagator.propagate(state);
 }
