@@ -11,9 +11,7 @@
 // detray includes
 #include "detray/definitions/units.hpp"
 #include "detray/field/constant_magnetic_field.hpp"
-#include "detray/intersection/detail/trajectories.hpp" // helix
 #include "detray/propagator/aborters.hpp"
-#include "detray/propagator/actor_chain.hpp"
 #include "detray/propagator/actor_chain.hpp"
 #include "detray/propagator/navigator.hpp"
 #include "detray/propagator/propagator.hpp"
@@ -21,7 +19,6 @@
 #include "detray/propagator/track.hpp"
 #include "tests/common/tools/create_toy_geometry.hpp"
 #include "tests/common/tools/inspectors.hpp"
-#include "tests/common/tools/particle_gun.hpp"
 #include "tests/common/tools/track_generators.hpp"
 
 // vecmem includes

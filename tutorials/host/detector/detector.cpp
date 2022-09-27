@@ -5,16 +5,15 @@
  * Mozilla Public License Version 2.0
  */
 
+#include <iostream>
+
 // Choose an algebra-plugin
 #include "detray/plugins/algebra/array_definitions.hpp"
 
 // detray includes
-#include "detray/geometry/volume_graph.hpp"
 #include "detray/intersection/intersection_kernel.hpp"
 #include "detray/intersection/detail/trajectories.hpp" // ray
-#include "detray/propagator/track.hpp"
 #include "tests/common/tools/create_toy_geometry.hpp"
-#include "tests/common/tools/hash_tree.hpp"
 #include "tests/common/tools/particle_gun.hpp"
 #include "tests/common/tools/ray_scan_utils.hpp"
 #include "tests/common/tools/track_generators.hpp"
@@ -22,7 +21,6 @@
 // vecmem includes
 #include <vecmem/memory/host_memory_resource.hpp>
 
-#include <iostream>
 
 using namespace detray;
 
