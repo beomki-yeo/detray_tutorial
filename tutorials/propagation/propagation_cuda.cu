@@ -1,7 +1,7 @@
 /** Detray tutorial project, No copy right **/
 
 // Project include(s).
-#include "propagation.hpp"
+#include "propagation_cuda.hpp"
 
 // Detray include(s).
 #include "detray/definitions/cuda_definitions.hpp"

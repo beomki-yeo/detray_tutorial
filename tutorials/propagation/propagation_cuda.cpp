@@ -1,7 +1,7 @@
 /** Detray tutorial project, No copy right **/
 
 // Project include(s).
-#include "propagation.hpp"
+#include "propagation_cuda.hpp"
 
 // Vecmem include(s).
 #include <vecmem/memory/cuda/device_memory_resource.hpp>
