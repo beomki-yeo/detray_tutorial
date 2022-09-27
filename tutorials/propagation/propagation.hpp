@@ -42,9 +42,12 @@ using propagator_host_type =
 using propagator_device_type =
     propagator<rk_stepper_type, navigator_device_type, actor_chain<>>;
 
+// Intersection type
+using intersection_t = line_plane_intersection;
+
 // CUDA propagation function
 void cuda_propagation(
     detector_view<detector_host_type> det_data,
     const constant_magnetic_field<> B,
     vecmem::data::vector_view<free_track_parameters> &tracks_data,
-    vecmem::data::jagged_vector_view<line_plane_intersection> &candidates_data);
+    vecmem::data::jagged_vector_view<intersection_t> &candidates_data);
