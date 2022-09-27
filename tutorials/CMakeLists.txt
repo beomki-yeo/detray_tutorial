@@ -3,23 +3,23 @@ cmake_minimum_required( VERSION 3.18 )
 
 detray_add_executable( tutorial_detector
    "host/detector/detector.cpp"
-   LINK_LIBRARIES detray::array detray_tests_common detray::core )
+   LINK_LIBRARIES detray::array detray_tests_common detray::core  vecmem::core)
 
 detray_add_executable( tutorial_volume_graph
    "host/detector/volume_graph.cpp"
-   LINK_LIBRARIES detray::array detray_tests_common detray::core )
+   LINK_LIBRARIES detray::array detray_tests_common detray::core  vecmem::core)
 
 detray_add_executable( tutorial_actors
    "host/propagation/actors.cpp"
-   LINK_LIBRARIES detray::array detray_tests_common detray::core )
+   LINK_LIBRARIES detray::array detray_tests_common detray::core  vecmem::core)
 
 detray_add_executable( tutorial_navigation
    "host/propagation/navigation.cpp"
-   LINK_LIBRARIES detray::array detray_tests_common detray::core )
+   LINK_LIBRARIES detray::array detray_tests_common detray::core  vecmem::core)
 
 detray_add_executable( tutorial_full_chain
    "host/propagation/full_chain.cpp"
-   LINK_LIBRARIES detray::array detray_tests_common detray::core )
+   LINK_LIBRARIES detray::array detray_tests_common detray::core  vecmem::core)
 
 # Enable CUDA as a language.
 enable_language( CUDA )
