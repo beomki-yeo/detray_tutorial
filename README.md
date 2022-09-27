@@ -11,7 +11,7 @@ git clone https://github.com/beomki-yeo/detray_tutorial.git
 cd detray_tutorial
 mkdir build
 cd build/
-cmake ../
+cmake ../ -DCMAKE_BUILD_TYPE=Release
 make
 ```
 
