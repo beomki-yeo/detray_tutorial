@@ -16,4 +16,7 @@ make
 ```
 
 ### Run propagator example
+
+```sh
 ./bin/detray_tutorial_propagator
+```
