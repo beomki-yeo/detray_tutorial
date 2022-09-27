@@ -51,7 +51,7 @@ int main()
      * CPU propagation *
      *******************/
 
-    // Create the toy geometry for CPU
+    // Create the TrackML (toy) geometry for CPU
     detector_host_type detector =
         create_toy_geometry<std::array, thrust::tuple, vecmem::vector,
                             vecmem::jagged_vector>(managed_resource,
