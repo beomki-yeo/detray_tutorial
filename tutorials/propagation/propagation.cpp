@@ -35,6 +35,10 @@ int main()
     constexpr int n_theta_steps = 10;
     constexpr int n_phi_steps = 10;
 
+    // Detector setup for the number of layers
+    constexpr std::size_t n_barrel_layers = 4;
+    constexpr std::size_t n_endcap_layers = 7;
+
     // Set up the constant magnetic field
     const vector3 B{0, 0, 2 * unit_constants::T};
     constant_magnetic_field<> B_field(B);
@@ -94,9 +98,9 @@ int main()
     // Create navigator candidates buffer
     auto candidates_buffer =
         create_candidates_buffer(detector, tracks_device.size(), device_resource);
-    vecmem::cuda::copy copy;        
+    vecmem::cuda::copy copy;
     copy.setup(candidates_buffer);
-    
+
     // Do the propagation in CUDA
     cuda_propagation(det_data, B_field, tracks_data, candidates_buffer);
 

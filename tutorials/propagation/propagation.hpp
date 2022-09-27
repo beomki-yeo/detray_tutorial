@@ -28,10 +28,6 @@ using detector_device_type =
     detector<detector_registry::toy_detector, std::array, thrust::tuple,
              vecmem::device_vector, vecmem::jagged_device_vector>;
 
-// Detector setup for the number of layers
-constexpr std::size_t n_barrel_layers = 4;
-constexpr std::size_t n_endcap_layers = 7;
-
 // Navigator type for host and device
 using navigator_host_type = navigator<detector_host_type>;
 using navigator_device_type = navigator<detector_device_type>;
