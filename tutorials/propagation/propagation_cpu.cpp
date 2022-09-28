@@ -66,7 +66,7 @@ struct track_inspector : actor
             position << "(" << pos[0] << "," << pos[1] << "," << pos[2] << ")";
             direction << "(" << dir[0] << "," << dir[1] << "," << dir[2] << ")";
 
-            std::cout << "Position:" << std::setw(25) << position.str() << "   ";
+            std::cout << "Position [mm]:" << std::setw(25) << position.str() << "   ";
             std::cout << "Direction:" << std::setw(25) << direction.str() << "   ";
             std::cout << std::endl;
         }
