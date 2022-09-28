@@ -1,5 +1,11 @@
 /** Detray tutorial project, No copy right **/
 
+// This tutorial introduces how to run a propagator in the Pixel part of 
+// TrackML detector with CUDA API. We will learn the followings:
+// 1. How to transfer host objects (detector, track) to GPU via view type objects
+// 2. How to construct device objects in the CUDA kernel
+// 3. .. And run the propagator in the CUDA kernel
+
 // Project include(s).
 #include "propagation_cuda.hpp"
 

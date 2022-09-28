@@ -15,12 +15,13 @@ __global__ void cuda_propagation_kernel(
     // Global thread index
     int gid = threadIdx.x + blockIdx.x * blockDim.x;
 
-    // Generate device objects
+    // Construct device objects from view type objects
     detector_device_type det(det_data);
     vecmem::device_vector<free_track_parameters> tracks(tracks_data);
     vecmem::jagged_device_vector<intersection_t> candidates(candidates_data);
 
-    // If global thread index is larger than the track batch size, return
+    // If the global thread index is larger than the track batch size,
+    // return
     if (gid >= tracks.size())
     {
         return;
@@ -51,6 +52,7 @@ void cuda_propagation(
     vecmem::data::jagged_vector_view<intersection_t> &candidates_data)
 {
 
+    // Number of threads per block = 2 * 32 (WARP_SIZE) = 64
     constexpr int thread_dim = 2 * WARP_SIZE;
     int block_dim = tracks_data.size() / thread_dim + 1;
 
